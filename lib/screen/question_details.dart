@@ -162,67 +162,69 @@ class _QuestionDetailsState extends State<QuestionDetails>
                                                                           .size
                                                                           .width *
                                                                       0.2),
-                                                              child: Column(
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .spaceEvenly,
-                                                                children: [
-                                                                  Text(
-                                                                      'Question : ' +
-                                                                          snapshot.data!.docs[index].get(
-                                                                              'question'),
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold)),
-                                                                  Text(
-                                                                      'Answer : ' +
-                                                                          snapshot.data!.docs[index].get(
-                                                                              'answer'),
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold)),
-                                                                  Text(
-                                                                      'a : ' +
-                                                                          snapshot.data!.docs[index].get(
-                                                                              'a'),
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold)),
-                                                                  Text(
-                                                                      'b : ${snapshot.data!.docs[index].get('b')}',
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold)),
-                                                                  Text(
-                                                                      'c : ' +
-                                                                          snapshot.data!.docs[index].get(
-                                                                              'c'),
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold)),
-                                                                  Text(
-                                                                      'time : ${snapshot.data!.docs[index].get('time')}',
-                                                                      style: const TextStyle(
-                                                                          fontWeight:
-                                                                              FontWeight.bold)),
-                                                                  (snapshot.data!.docs[index]
-                                                                              .get(
-                                                                                  'image')
-                                                                              .toString()
-                                                                              .length >
-                                                                          5)
-                                                                      ? Image.network(snapshot
-                                                                          .data!
-                                                                          .docs[
-                                                                              index]
-                                                                          .get(
-                                                                              'image'))
-                                                                      : Image.asset(
-                                                                          'assets/images/adap.png')
-                                                                ],
+                                                              child: SingleChildScrollView(
+                                                                child: Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceEvenly,
+                                                                  children: [
+                                                                    Text(
+                                                                        'Question : ' +
+                                                                            snapshot.data!.docs[index].get(
+                                                                                'question'),
+                                                                        style: const TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
+                                                                    Text(
+                                                                        'Answer : ' +
+                                                                            snapshot.data!.docs[index].get(
+                                                                                'answer'),
+                                                                        style: const TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
+                                                                    Text(
+                                                                        'a : ' +
+                                                                            snapshot.data!.docs[index].get(
+                                                                                'a'),
+                                                                        style: const TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
+                                                                    Text(
+                                                                        'b : ${snapshot.data!.docs[index].get('b')}',
+                                                                        style: const TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
+                                                                    Text(
+                                                                        'c : ' +
+                                                                            snapshot.data!.docs[index].get(
+                                                                                'c'),
+                                                                        style: const TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
+                                                                    Text(
+                                                                        'time : ${snapshot.data!.docs[index].get('time')}',
+                                                                        style: const TextStyle(
+                                                                            fontWeight:
+                                                                                FontWeight.bold)),
+                                                                    (snapshot.data!.docs[index]
+                                                                                .get(
+                                                                                    'image')
+                                                                                .toString()
+                                                                                .length >
+                                                                            5)
+                                                                        ? Image.network(snapshot
+                                                                            .data!
+                                                                            .docs[
+                                                                                index]
+                                                                            .get(
+                                                                                'image'))
+                                                                        : Image.asset(
+                                                                            'assets/images/adap.png')
+                                                                  ],
+                                                                ),
                                                               ),
                                                             ),
                                                           ),

@@ -51,79 +51,81 @@ class Login extends StatelessWidget implements ApiStatusLogin {
                                         topRight: Radius.circular(30),
                                         topLeft: Radius.circular(30))
                                 ),
-                                child:Column(
-                                  children: [
-                                    Container(
-                                      margin: EdgeInsets.symmetric(vertical: 20),
-                                      decoration: BoxDecoration(
-                                          color: kLightGreen,
-                                          borderRadius: BorderRadius.circular(20)),
-                                      height: MediaQuery.of(context).size.height * 0.08,
-                                      width: MediaQuery.of(context).size.width * 0.8,
-                                      child: TextField(
-                                        controller:value.emailController ,
-                                        decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(),
-                                            ),
-                                            focusedBorder: InputBorder.none,
-                                            enabledBorder: InputBorder.none,
-                                            errorBorder: InputBorder.none,
-                                            disabledBorder: InputBorder.none,
-                                            contentPadding: EdgeInsets.only(
-                                                left: 15, bottom: 11, top: 11, right: 15),
-                                            hintText: "user name",
-                                            hintStyle: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold
-                                            )),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.symmetric(vertical: 20),
-                                      decoration: BoxDecoration(
-                                          color: kLightGreen,
-                                          borderRadius: BorderRadius.circular(20)),
-                                      height: MediaQuery.of(context).size.height * 0.08,
-                                      width: MediaQuery.of(context).size.width * 0.8,
-                                      child: TextField(
-                                        controller:value.passwordController ,
-                                        decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(30),
-                                              borderSide: const BorderSide(),
-                                            ),
-                                            focusedBorder: InputBorder.none,
-                                            enabledBorder: InputBorder.none,
-                                            errorBorder: InputBorder.none,
-                                            disabledBorder: InputBorder.none,
-                                            contentPadding: EdgeInsets.only(
-                                                left: 15, bottom: 11, top: 11, right: 15),
-                                            hintText: "password",
-                                            hintStyle: TextStyle(
-                                                fontSize: 15,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold
-                                            )),
-                                      ),
-                                    ),
-                                    RawMaterialButton(
-                                      onPressed: () {
-                                        value.signIn();
-                                      },
-                                      child: Container(
+                                child:SingleChildScrollView(
+                                  child: Column(
+                                    children: [
+                                      Container(
                                         margin: EdgeInsets.symmetric(vertical: 20),
                                         decoration: BoxDecoration(
-                                            color: kButtonBlue,
+                                            color: kLightGreen,
                                             borderRadius: BorderRadius.circular(20)),
-                                        height: MediaQuery.of(context).size.height * 0.07,
-                                        width: MediaQuery.of(context).size.width * 0.5,
-                                        child: Center(child: Text('Login',style: TextStyle(color: Colors.white),)),
+                                        height: MediaQuery.of(context).size.height * 0.08,
+                                        width: MediaQuery.of(context).size.width * 0.8,
+                                        child: TextField(
+                                          controller:value.emailController ,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.circular(30),
+                                                borderSide: const BorderSide(),
+                                              ),
+                                              focusedBorder: InputBorder.none,
+                                              enabledBorder: InputBorder.none,
+                                              errorBorder: InputBorder.none,
+                                              disabledBorder: InputBorder.none,
+                                              contentPadding: EdgeInsets.only(
+                                                  left: 15, bottom: 11, top: 11, right: 15),
+                                              hintText: "user name",
+                                              hintStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold
+                                              )),
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                      Container(
+                                        margin: EdgeInsets.symmetric(vertical: 20),
+                                        decoration: BoxDecoration(
+                                            color: kLightGreen,
+                                            borderRadius: BorderRadius.circular(20)),
+                                        height: MediaQuery.of(context).size.height * 0.08,
+                                        width: MediaQuery.of(context).size.width * 0.8,
+                                        child: TextField(
+                                          controller:value.passwordController ,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(
+                                                borderRadius: BorderRadius.circular(30),
+                                                borderSide: const BorderSide(),
+                                              ),
+                                              focusedBorder: InputBorder.none,
+                                              enabledBorder: InputBorder.none,
+                                              errorBorder: InputBorder.none,
+                                              disabledBorder: InputBorder.none,
+                                              contentPadding: EdgeInsets.only(
+                                                  left: 15, bottom: 11, top: 11, right: 15),
+                                              hintText: "password",
+                                              hintStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: Colors.white,
+                                                  fontWeight: FontWeight.bold
+                                              )),
+                                        ),
+                                      ),
+                                      RawMaterialButton(
+                                        onPressed: () {
+                                          value.signIn();
+                                        },
+                                        child: Container(
+                                          margin: EdgeInsets.symmetric(vertical: 20),
+                                          decoration: BoxDecoration(
+                                              color: kButtonBlue,
+                                              borderRadius: BorderRadius.circular(20)),
+                                          height: MediaQuery.of(context).size.height * 0.07,
+                                          width: MediaQuery.of(context).size.width * 0.5,
+                                          child: Center(child: Text('Login',style: TextStyle(color: Colors.white),)),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),

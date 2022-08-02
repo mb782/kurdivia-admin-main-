@@ -62,146 +62,148 @@ class _UsersState extends State<Users> implements ApiStatusLogin {
               ),
             ],
           ),
-          body: Column(
-            children: [
-              StreamBuilder<QuerySnapshot>(
-                stream: context.read<ApiService>().getAllUser(),
-                builder: (BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot) {
-                  if (snapshot.hasData) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.84,
-                      child: MaterialApp(
-                        debugShowCheckedModeBanner: false,
-                        home: Scaffold(
-                          body: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: ListView.builder(
-                                  itemCount: snapshot.data!.docs.length,
-                                  itemBuilder: (context, index) {
-                                    {
-                                      String val = snapshot.data!.docs[index]
-                                          .get('name');
-                                      return Column(
-                                        children: [
-                                          InkWell(
-                                            onTap: (){
-                                              kNavigator(context, UserDetail(id: snapshot
-                                                  .data!.docs[index]
-                                                  .get('id')));
-                                            },
-                                            child: Row(
-                                              children: [
-                                                //Text((index+1).toString()+'.'),
-                                                CircleAvatar(
-                                                  radius: 30,
-                                                  backgroundColor: Colors.white,
-                                                  child: snapshot
-                                                              .data!.docs[index]
-                                                              .get('image')
-                                                              .toString()
-                                                              .length <
-                                                          2
-                                                      ? Container(
-                                                          decoration: BoxDecoration(
-                                                              color: Color((math.Random()
-                                                                              .nextDouble() *
-                                                                          0xFFFFFF)
-                                                                      .toInt())
-                                                                  .withOpacity(
-                                                                      0.5),
-                                                              shape: BoxShape
-                                                                  .circle),
-                                                          height: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
-                                                              0.08,
-                                                          width: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .width *
-                                                              0.15,
-                                                          child: Center(
-                                                            child: Text(
-                                                              snapshot.data!
-                                                                  .docs[index]
-                                                                  .get('name')
-                                                                  .split('')
-                                                                  .first,
-                                                              style: const TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .bold,
-                                                                  fontSize: 40,
-                                                                  color: Colors
-                                                                      .black),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                StreamBuilder<QuerySnapshot>(
+                  stream: context.read<ApiService>().getAllUser(),
+                  builder: (BuildContext context,
+                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.hasData) {
+                      return Container(
+                        height: MediaQuery.of(context).size.height * 0.84,
+                        child: MaterialApp(
+                          debugShowCheckedModeBanner: false,
+                          home: Scaffold(
+                            body: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: ListView.builder(
+                                    itemCount: snapshot.data!.docs.length,
+                                    itemBuilder: (context, index) {
+                                      {
+                                        String val = snapshot.data!.docs[index]
+                                            .get('name');
+                                        return Column(
+                                          children: [
+                                            InkWell(
+                                              onTap: (){
+                                                kNavigator(context, UserDetail(id: snapshot
+                                                    .data!.docs[index]
+                                                    .get('id')));
+                                              },
+                                              child: Row(
+                                                children: [
+                                                  //Text((index+1).toString()+'.'),
+                                                  CircleAvatar(
+                                                    radius: 30,
+                                                    backgroundColor: Colors.white,
+                                                    child: snapshot
+                                                                .data!.docs[index]
+                                                                .get('image')
+                                                                .toString()
+                                                                .length <
+                                                            2
+                                                        ? Container(
+                                                            decoration: BoxDecoration(
+                                                                color: Color((math.Random()
+                                                                                .nextDouble() *
+                                                                            0xFFFFFF)
+                                                                        .toInt())
+                                                                    .withOpacity(
+                                                                        0.5),
+                                                                shape: BoxShape
+                                                                    .circle),
+                                                            height: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .height *
+                                                                0.08,
+                                                            width: MediaQuery.of(
+                                                                        context)
+                                                                    .size
+                                                                    .width *
+                                                                0.15,
+                                                            child: Center(
+                                                              child: Text(
+                                                                snapshot.data!
+                                                                    .docs[index]
+                                                                    .get('name')
+                                                                    .split('')
+                                                                    .first,
+                                                                style: const TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize: 40,
+                                                                    color: Colors
+                                                                        .black),
+                                                              ),
+                                                            ),
+                                                          )
+                                                        : Center(
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          50),
+                                                              child: Image(
+                                                                  image: NetworkImage(
+                                                                      snapshot
+                                                                          .data!
+                                                                          .docs[
+                                                                              index]
+                                                                          .get(
+                                                                              'image')),
+                                                                  fit: BoxFit
+                                                                      .fill),
                                                             ),
                                                           ),
-                                                        )
-                                                      : Center(
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        50),
-                                                            child: Image(
-                                                                image: NetworkImage(
-                                                                    snapshot
-                                                                        .data!
-                                                                        .docs[
-                                                                            index]
-                                                                        .get(
-                                                                            'image')),
-                                                                fit: BoxFit
-                                                                    .fill),
-                                                          ),
-                                                        ),
-                                                ),
-                                                Text(
-                                                  '   ' + val,
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 20),
-                                                ),
-                                              ],
+                                                  ),
+                                                  Text(
+                                                    '   ' + val,
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
-                                          ),
-                                          Divider()
-                                        ],
-                                      );
-                                    }
-                                  },
+                                            Divider()
+                                          ],
+                                        );
+                                      }
+                                    },
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
+                      );
+                      //;
+                    } else if (snapshot.hasError) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.5,
+                          ),
+                          Text(snapshot.error.toString()),
+                        ],
+                      );
+                    }
+
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: Colors.blue,
                       ),
                     );
-                    //;
-                  } else if (snapshot.hasError) {
-                    return Column(
-                      children: [
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.5,
-                        ),
-                        Text(snapshot.error.toString()),
-                      ],
-                    );
-                  }
-
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.blue,
-                    ),
-                  );
-                },
-              )
-            ],
+                  },
+                )
+              ],
+            ),
           ),
         ));
       },
